@@ -9,8 +9,8 @@ from .serializers import StudentSerializer
 
 # Create your views here.
 
-class ProductView(APIView):
+class StudentsView(APIView):
     def get(self, request):
-        product = Students.objects.all()
-        serializer = StudentSerializer(product, many=True)
+        student = Students.objects.all()
+        serializer = StudentSerializer(student, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
