@@ -2,6 +2,25 @@
   <!-- <div id="app"> -->
 
     {{msg}}
+
+    <table class="table">
+      <thead>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Rating</th>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+
+    </table>
+  
+  
   <!-- </div> -->
   <!-- <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/> -->
