@@ -1,7 +1,15 @@
 <template>
   <!-- <div id="app"> -->
+    <h3>Students Info</h3>
+    <form action=""> 
+      <div class="form-group row">
+        <input type="text" class="form-control col-3 mx-2" placeholder="Name">
+        <input type="text" class="form-control col-3 mx-2" placeholder="Course">
+        <input type="text" class="form-control col-3 mx-2" placeholder="Rating">
+        <button class="btn btn-success">Submit</button>
 
-    {{msg}}
+      </div>
+    </form>
 
     <table class="table">
       <thead>
