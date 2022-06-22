@@ -1,11 +1,11 @@
 <template>
   <!-- <div id="app"> -->
     <h3>Students Info</h3>
-    <form action=""> 
+    <form @submit.prevent="createStudents"> 
       <div class="form-group row">
-        <input type="text" class="form-control col-3 mx-2" placeholder="Name">
-        <input type="text" class="form-control col-3 mx-2" placeholder="Course">
-        <input type="text" class="form-control col-3 mx-2" placeholder="Rating">
+        <input type="text" class="form-control col-3 mx-2" placeholder="Name" v-model="student.name">
+        <input type="text" class="form-control col-3 mx-2" placeholder="Course" v-model="student.course">
+        <input type="text" class="form-control col-3 mx-2" placeholder="Rating" v-model="student.rating">
         <button class="btn btn-success">Submit</button>
 
       </div>
@@ -45,12 +45,30 @@ export default {
   data(){
     return{
       // msg:'Hello Vue js'[]
+      student:{
+        'name':'',
+        'course':'',
+        'rating':'',
+      },
       students: []
     }
   },
   async created(){
     var response = await fetch('http://127.0.0.1:8000/students/');
     this.students = await response.json();  
+  },
+  methods:{
+    async createStudents(){
+      console.log(this.student)
+      var response = await fetch('http://127.0.0.1:8000/students/', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(this.student)
+      });
+      this.students.push(await response.json());
+    }
   }
 }
 </script>
