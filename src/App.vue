@@ -5,7 +5,7 @@
       <div class="form-group row">
         <input type="text" class="form-control col-3 mx-2" placeholder="Name" v-model="student.name">
         <input type="text" class="form-control col-3 mx-2" placeholder="Course" v-model="student.course">
-        <input type="text" class="form-control col-3 mx-2" placeholder="Rating" v-model="student.rating">
+        <input type="text" class="form-control col-3 mx-2" placeholder="Rating" v-model="student.ratings">
         <button class="btn btn-success">Submit</button>
 
       </div>
@@ -15,7 +15,7 @@
       <thead>
         <th>Name</th>
         <th>Course</th>
-        <th>Rating</th>
+        <th>Ratings</th>
       </thead>
 
       <tbody>
@@ -48,7 +48,7 @@ export default {
       student:{
         'name':'',
         'course':'',
-        'rating':'',
+        'ratings':'',
       },
       students: []
     }
@@ -60,7 +60,7 @@ export default {
   methods:{
     async createStudents(){
       console.log(this.student)
-      var response = await fetch('http://127.0.0.1:8000/students/', {
+      var response = await fetch('http://127.0.0.1:8000/students/',{
         method: 'post',
         headers: {
           'Content-Type': 'application/json'
