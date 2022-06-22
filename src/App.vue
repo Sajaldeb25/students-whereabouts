@@ -11,10 +11,10 @@
       </thead>
 
       <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr v-for="student in students" :key="student.id">
+          <td>{{ student.name }}</td>
+          <td>{{ student.course }}</td>
+          <td>{{ student.ratings }}</td>
         </tr>
       </tbody>
 
@@ -36,9 +36,13 @@ export default {
   // }
   data(){
     return{
-      msg:'Hello Vue js'
+      // msg:'Hello Vue js'[]
+      students: []
     }
-
+  },
+  async created(){
+    var response = await fetch('http://127.0.0.1:8000/students/');
+    this.students = await response.json();  
   }
 }
 </script>
